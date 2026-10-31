@@ -7,9 +7,6 @@ import { motion } from "framer-motion";
 // Importing EmailJS SDK
 import emailjs from "@emailjs/browser";
 
-// Importing Particles Background (same as Home component)
-import ParticlesBackground from "../components/ParticlesBackground.jsx";
-
 // Importing the contact image asset
 import Astra from "../assets/Astra.png";
 
@@ -45,7 +42,7 @@ export default function Contact() {
     const newErrors = {};
 
     required.forEach(
-      (f) => !formData[f].trim() && (newErrors[f] = "Fill this field")
+      (f) => !formData[f].trim() && (newErrors[f] = "Fill this field"),
     );
 
     if (formData.service !== "other" && !formData.budget.trim())
@@ -71,11 +68,11 @@ export default function Contact() {
           from_name: formData.name,
           reply_to: formData.email,
         },
-        PUBLIC_KEY
+        PUBLIC_KEY,
       );
 
       setStatus("success");
-      setFormData({name: "",email: "",service: "",budget: "",idea: ""});
+      setFormData({ name: "", email: "", service: "", budget: "", idea: "" });
     } catch (err) {
       console.error("EmailJS Error:", err);
       setStatus("error");
@@ -84,12 +81,9 @@ export default function Contact() {
 
   return (
     <section
-      id="contact" className="w-full min-h-screen relative bg-black overflow-hidden text-white py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10">
-      {/* Particles Background */}
-      <ParticlesBackground />
-
-  
-
+      id="contact"
+      className="w-full min-h-screen relative z-10 bg-[#C5C8B8] overflow-hidden text-[#111811] py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10"
+    >
       {/* Contact Section Content */}
       <div className="relative z-10 w-full flex flex-col md:flex-row items-center gap-10">
         {/* Left Animated Image Section */}
@@ -97,7 +91,7 @@ export default function Contact() {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full md:w-1/2 flex justify-center"
+          className="hidden md:flex w-full md:w-1/2 justify-center"
         >
           <motion.img
             src={Astra}
@@ -113,14 +107,16 @@ export default function Contact() {
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full md:w-1/2 bg-white/5 p-8 rounded-2xl shadow-lg border border-white/10"
+          className="w-full md:w-1/2 bg-[#D5D8C9]/80 p-8 rounded-2xl shadow-[0_15px_40px_rgba(38,61,41,0.12)] border border-[#263D29]/20"
         >
-          <h2 className="text-3xl font-bold mb-6">Let’s Work Together</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#111811]">
+            Let’s Work Together
+          </h2>
 
           <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
             {/* Name field */}
             <div className="flex flex-col">
-              <label className="mb-1">
+              <label className="mb-1 text-[#263D29] font-medium">
                 Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -129,9 +125,9 @@ export default function Contact() {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`p-3 rounded-md bg-white/10 border ${
-                  errors.name ? "border-red-500" : "border-gray-500"
-                } text-white focus:outline-none focus:border-blue-500`}
+                className={`p-3 rounded-md bg-[#C5C8B8]/70 border ${
+                  errors.name ? "border-red-500" : "border-[#263D29]/30"
+                } text-[#111811] placeholder:text-[#52604D] focus:outline-none focus:border-[#579D38]`}
               />
               {errors.name && (
                 <p className="text-red-500 text-xs">{errors.name}</p>
@@ -139,19 +135,20 @@ export default function Contact() {
             </div>
 
             {/* Email field */}
-            <div className="flex flex-col">
-              <label className="mb-1">
-                Email <span className="text-red-500">*</span>
-              </label>
+            {/* Email field */}
+<div className="flex flex-col mb-1 text-[#263D29] font-medium">
+  <label className="mb-1">
+    Email <span className="text-red-500">*</span>
+  </label>
               <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`p-3 rounded-md bg-white/10 border ${
-                  errors.email ? "border-red-500" : "border-gray-500"
-                } text-white focus:outline-none focus:border-blue-500`}
+                className={`p-3 rounded-md bg-[#C5C8B8]/70 border ${
+                  errors.email ? "border-red-500" : "border-[#263D29]/30"
+                } text-[#111811] placeholder:text-[#52604D] focus:outline-none focus:border-[#579D38]`}
               />
               {errors.email && (
                 <p className="text-red-500 text-xs">{errors.email}</p>
@@ -160,7 +157,7 @@ export default function Contact() {
 
             {/* Service dropdown */}
             <div className="flex flex-col">
-              <label className="mb-1">
+              <label className="mb-1 text-[#263D29] font-medium">
                 Service Needed <span className="text-red-500">*</span>
               </label>
 
@@ -168,11 +165,11 @@ export default function Contact() {
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
-                className={`p-3 rounded-md bg-white/10 border ${
-                  errors.service ? "border-red-500" : "border-gray-500"
-                } focus:outline-none focus:border-blue-500`}
+                className={`p-3 rounded-md bg-[#C5C8B8]/70 border ${
+                  errors.service ? "border-red-500" : "border-[#263D29]/30"
+                } text-[#111811] placeholder:text-[#52604D] focus:outline-none focus:border-[#579D38]`}
               >
-                <option value="" disabled>
+                <option value="" disabled className="text-[#52604D]">
                   Something in mind?
                 </option>
                 <option value="Web Development" className="text-black">
@@ -194,7 +191,7 @@ export default function Contact() {
             {/* Budget field */}
             {formData.service && formData.service !== "other" && (
               <div className="flex flex-col">
-                <label className="mb-1">
+                <label className="mb-1 text-[#263D29] font-medium">
                   Budget <span className="text-red-500">*</span>
                 </label>
 
@@ -204,9 +201,9 @@ export default function Contact() {
                   placeholder="Your Budget"
                   value={formData.budget}
                   onChange={handleChange}
-                  className={`p-3 rounded-md bg-white/10 border ${
-                    errors.budget ? "border-red-500" : "border-gray-500"
-                  } text-white focus:outline-none focus:border-blue-500`}
+                  className={`p-3 rounded-md bg-[#C5C8B8]/70 border ${
+                    errors.budget ? "border-red-500" : "border-[#263D29]/30"
+                  } text-[#111811] placeholder:text-[#52604D] focus:outline-none focus:border-[#579D38]`}
                 />
 
                 {errors.budget && (
@@ -217,7 +214,7 @@ export default function Contact() {
 
             {/* Idea textarea */}
             <div className="flex flex-col">
-              <label className="mb-1">
+              <label className="mb-1 text-[#263D29] font-medium">
                 Idea <span className="text-red-500">*</span>
               </label>
 
@@ -227,9 +224,9 @@ export default function Contact() {
                 placeholder="Enter your idea"
                 value={formData.idea}
                 onChange={handleChange}
-                className={`p-3 rounded-md bg-white/10 border ${
-                  errors.idea ? "border-red-500" : "border-gray-500"
-                } text-white focus:outline-none focus:border-blue-500`}
+                className={`p-3 rounded-md bg-[#C5C8B8]/70 border ${
+                  errors.idea ? "border-red-500" : "border-[#263D29]/30"
+                } text-[#111811] placeholder:text-[#52604D] focus:outline-none focus:border-[#579D38]`}
               />
 
               {errors.idea && (
@@ -242,17 +239,17 @@ export default function Contact() {
               <p
                 className={`text-sm ${
                   status === "success"
-                    ? "text-green-400"
+                    ? "text-[#263D29]"
                     : status === "error"
-                    ? "text-red-400"
-                    : "text-yellow-400"
+                      ? "text-red-600"
+                      : "text-[#8A641B]"
                 }`}
               >
                 {status === "sending"
                   ? "Sending..."
                   : status === "success"
-                  ? "Message sent successfully ✅"
-                  : "Something went wrong ❌"}
+                    ? "Message sent successfully ✅"
+                    : "Something went wrong ❌"}
               </p>
             )}
 
@@ -263,15 +260,15 @@ export default function Contact() {
               disabled={status === "sending"}
               type="submit"
               className="
-                bg-blue-600 
-                hover:bg-blue-700 
-                disabled:opacity-60 
-                text-white 
-                py-3 
-                rounded-md 
-                font-semibold 
-                transition
-              "
+  bg-gradient-to-r from-[#8FCB35] via-[#78B82B] to-[#579D38]
+  hover:brightness-105
+  disabled:opacity-60
+  text-[#111811]
+  py-3
+  rounded-md
+  font-semibold
+  transition
+"
             >
               {status === "sending" ? "Sending..." : "Send Message"}
             </motion.button>

@@ -6,17 +6,17 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen w-full flex items-center justify-center relative bg-black text-white overflow-hidden"
+      className="min-h-screen w-full flex items-center justify-center relative bg-[#C5C8B8] text-[#111811] overflow-hidden"
       aria-label="About me"
     >
       {/* Layered dark lime-green background accents */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-10 -left-10 w-[360px] h-[360px] rounded-full bg-gradient-to-r from-[#1a260b] via-[#365d13] to-[#a3e635] opacity-20 blur-[120px] animate-pulse" />
+  <div className="absolute -top-10 -left-10 w-[360px] h-[360px] rounded-full bg-gradient-to-r from-[#8FCB35] via-[#579D38] to-[#263D29] opacity-20 blur-[120px] animate-pulse" />
 
-        <div className="absolute bottom-0 right-10 w-[420px] h-[420px] rounded-full bg-gradient-to-r from-[#16320e] via-[#14532d] to-[#84cc16] opacity-15 blur-[140px] animate-pulse delay-300" />
+  <div className="absolute bottom-0 right-10 w-[420px] h-[420px] rounded-full bg-gradient-to-r from-[#579D38] via-[#263D29] to-[#8FCB35] opacity-15 blur-[140px] animate-pulse delay-300" />
 
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-20 w-[220px] h-[220px] rounded-full bg-gradient-to-r from-[#84cc16] to-[#a3e635] opacity-10 blur-[100px]" />
-      </div>
+  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-20 w-[220px] h-[220px] rounded-full bg-gradient-to-r from-[#8FCB35] to-[#579D38] opacity-10 blur-[100px]" />
+</div>
 
       {/* Content container */}
       <div className="relative z-10 max-w-6xl w-full mx-auto px-6 md:px-10 lg:px-12 py-20 flex flex-col gap-12">
@@ -31,7 +31,7 @@ export default function About() {
         >
           {/* Avatar / Card */}
           <motion.div
-            className="relative w-[160px] h-[160px] md:w-[200px] md:h-[200px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#a3e635]/20 to-[#14532d]/20 border border-[#a3e635]/25"
+           className="relative w-[160px] h-[160px] md:w-[200px] md:h-[200px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#8FCB35]/20 to-[#579D38]/20 border border-[#579D38]/40"
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
             aria-hidden="true"
@@ -43,15 +43,15 @@ export default function About() {
 
           {/* Name + Role + Bio + CTAs */}
           <div className="flex-1 flex flex-col justify-center text-center md:text-left">
-            <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#a3e635] via-[#b7ff24] to-[#4ade80]">
+            <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#263D29] via-[#579D38] to-[#111811]">
               Ansh Mahoviya
             </h2>
 
-            <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">
+            <p className="mt-2 text-lg sm:text-xl text-[#263D29] font-semibold">
               Full Stack Developer
             </p>
 
-            <p className="mt-4 text-gray-300 leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
+            <p className="mt-4 text-[#303A2D] leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
               I build scalable, modern applications with a strong focus on clean architecture, delightful UX, and performance. My toolkit spans Java, React, Next.js, TypeScript, Tailwind CSS, and FastAPI—bringing ideas to life from concept to production with robust APIs and smooth interfaces.
             </p>
 
@@ -64,17 +64,17 @@ export default function About() {
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center"
+                  className="rounded-xl border border-[#263D29]/20 bg-[#D5D8C9]/60 px-4 py-3 text-center"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.05 * i }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  <div className="text-sm text-gray-400">
+                  <div className="text-sm text-[#52604D]">
                     {item.label}
                   </div>
 
-                  <div className="text-base font-semibold text-white">
+                  <div className="text-base font-semibold text-[#111811]">
                     {item.value}
                   </div>
                 </motion.div>
@@ -85,7 +85,7 @@ export default function About() {
             <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center rounded-lg bg-[#a3e635] text-[#080808] font-semibold px-5 py-3 hover:bg-[#b7ff24] transition"
+                className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#8FCB35] via-[#78B82B] to-[#579D38] text-[#111811] font-semibold px-5 py-3 hover:brightness-105 transition"
                 aria-label="View my projects"
               >
                 View Projects
@@ -93,7 +93,7 @@ export default function About() {
 
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-lg border border-[#a3e635]/40 bg-white/5 text-white px-5 py-3 hover:bg-[#a3e635]/10 transition"
+                className="inline-flex items-center justify-center rounded-lg border border-[#263D29]/40 bg-[#D5D8C9]/50 text-[#263D29] px-5 py-3 hover:bg-[#8FCB35]/30 transition"
                 aria-label="Get in touch"
               >
                 Get in Touch
@@ -111,15 +111,15 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true, amount: 0.4 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#111811] mb-3">
               About Me
             </h3>
 
-            <p className="text-gray-300 leading-relaxed text-base sm:text-lg">
+            <p className="text-[#303A2D] leading-relaxed text-base sm:text-lg">
               I’m a Software Developer and Web Developer — passionate about building fast, responsive websites and crafting modern digital experiences.
             </p>
 
-            <p className="mt-4 text-gray-400 text-base sm:text-lg">
+            <p className="mt-4 text-[#52604D] text-base sm:text-lg">
               I love turning ideas into scalable, user‑friendly products that make an impact.
             </p>
           </motion.div>

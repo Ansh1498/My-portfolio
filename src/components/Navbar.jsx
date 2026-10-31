@@ -1,7 +1,8 @@
+
 import { useState, useEffect, useRef } from "react";
 import OverlayMenu from "./OverlayMenu";
 import { FiMenu } from "react-icons/fi";
-import Logo2 from "../assets/Logo2.png"; // Adjust path
+import Logo2 from "../assets/logo2.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,12 +18,12 @@ export default function Navbar() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setForceVisible(true);
-          setVisible(true); // Always visible on homepage
+          setVisible(true);
         } else {
           setForceVisible(false);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (homeSection) observer.observe(homeSection);
@@ -34,7 +35,6 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // If on homepage, never hide navbar
       if (forceVisible) {
         setVisible(true);
         return;
@@ -43,13 +43,10 @@ export default function Navbar() {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY.current) {
-        // scrolling down -> hide
         setVisible(false);
       } else {
-        // scrolling up -> show
         setVisible(true);
 
-        // hide again after 3sec idle
         if (timerId.current) clearTimeout(timerId.current);
         timerId.current = setTimeout(() => {
           setVisible(false);
@@ -74,10 +71,15 @@ export default function Navbar() {
         }`}
       >
         {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <img src={Logo2} alt="Logo" className="w-8 h-8" />
-          <div className="text-2xl font-bold text-white hidden sm:block">
-            Ansh
+        <div className="flex items-center ">
+          <img
+            src={Logo2}
+            alt="Logo"
+            className="w-8 h-8"
+            style={{ filter: "brightness(0) saturate(100%)" }}
+          />
+          <div className="text-2xl font-bold text-[#1e291f] hidden sm:block">
+            nsh
           </div>
         </div>
 
@@ -85,7 +87,7 @@ export default function Navbar() {
         <div className="block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
           <button
             onClick={() => setMenuOpen(true)}
-            className="text-white text-3xl focus:outline-none"
+            className="text-[#172018] text-3xl focus:outline-none"
             aria-label="Open menu"
           >
             <FiMenu />
@@ -96,7 +98,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <a
             href="#contact"
-            className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-5 py-2 rounded-full font-medium shadow-lg hover:opacity-90 transition-opacity duration-300"
+            className="bg-[#2a362b] text-white px-5 py-2 rounded-full font-medium shadow-lg shadow-black/10 hover:bg-[#5c8829] hover:text-[#222127] hover:scale-105 transition-all duration-300"
           >
             Reach Out
           </a>

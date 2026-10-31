@@ -14,7 +14,6 @@
 
 @layer utilities {
   .animated-gradient {
-    background: linear-gradient(-45deg, #302b63, #00bf8f, #1CD8D2);
     background-size: 400% 400%;
     animation: gradientShift 12s ease infinite;
   }
@@ -60,8 +59,8 @@
 
 
 
-@media (max-width: 640px) {
+/* @media (max-width: 640px) {
   body > *:not(#contact):not(footer) {
     overflow-x: clip;
   }
-}
+} */

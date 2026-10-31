@@ -1,10 +1,6 @@
 // src/components/Footer.jsx
 import { motion } from "framer-motion";
-import {
-  FaLinkedinIn,
-  FaInstagram,
-  FaGithub,
-} from "react-icons/fa6";
+import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa6";
 
 /**
  * Social media links configuration
@@ -13,7 +9,11 @@ import {
  * - Add/remove items if you want more or fewer social platforms
  */
 const socials = [
-  { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/in" },
+  {
+    Icon: FaLinkedinIn,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in",
+  },
   { Icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com" },
   { Icon: FaGithub, label: "GitHub", href: "https://github.com/Ansh1498" },
 ];
@@ -25,7 +25,12 @@ const socials = [
  * - Tap: slightly shrink when clicked/tapped
  */
 const glowVariants = {
-  initial: { scale: 1, y: 0, filter: "drop-shadow(0 0 0 rgba(0,0,0,0))" },
+  initial: {
+    scale: 1,
+    y: 0,
+    filter:
+      "drop-shadow(0 0 8px rgba(143,203,53,0.7)) drop-shadow(0 0 18px rgba(87,157,56,0.5))",
+  },
   hover: {
     scale: 1.2,
     y: -3,
@@ -38,12 +43,13 @@ const glowVariants = {
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden bg-black">
+    <footer className="relative overflow-hidden bg-[#C5C8B8]">
       {/* --- Background neon gradient effects --- */}
-      {/* Blue glow overlay (top-right side) */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_60%_at_70%_35%,rgba(13,88,204,0.35),transparent_70%)]" />
-      {/* Green glow overlay (bottom-left side) */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_55%_at_30%_70%,rgba(16,185,129,0.30),transparent_70%)]" />
+      {/* Green glow overlay (top-right side) */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_60%_at_70%_35%,rgba(143,203,53,0.25),transparent_70%)]" />
+
+      {/* Forest green glow overlay (bottom-left side) */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_55%_at_30%_70%,rgba(38,61,41,0.20),transparent_70%)]" />
 
       {/* --- Main Footer Content --- */}
       <motion.div
@@ -56,7 +62,7 @@ const Footer = () => {
         {/* Change text to your name or brand */}
         <div className="w-full">
           <h1
-            className="font-bangers font-semibold leading-none text-white text-center select-none"
+            className="font-bangers font-semibold leading-none text-[#111811] text-center select-none"
             style={{
               fontSize: "clamp(3rem, 5vw, 14rem)", // Responsive scaling
               letterSpacing: "0.02em",
@@ -64,7 +70,7 @@ const Footer = () => {
               paddingLeft: "2vw",
               paddingRight: "4vw",
               whiteSpace: "nowrap",
-              textShadow: "0 2px 18px rgba(0,0,0,0.45)",
+              textShadow: "0 2px 18px rgba(38,61,41,0.18)",
             }}
           >
             Ansh Mahoviya
@@ -73,7 +79,7 @@ const Footer = () => {
 
         {/* --- Accent underline --- */}
         {/* Decorative gradient line under name */}
-        <div className="h-[3px] w-24 md:w-32 rounded-full bg-gradient-to-r from-[#0D58CC] via-cyan-300 to-emerald-400" />
+        <div className="h-[3px] w-24 md:w-32 rounded-full bg-gradient-to-r from-[#263D29] via-[#8FCB35] to-[#579D38]" />
 
         {/* --- Social Media Links --- */}
         {/* Icons mapped dynamically from `socials` array */}
@@ -89,7 +95,7 @@ const Footer = () => {
               initial="initial"
               whileHover="hover"
               whileTap="tap"
-              className="text-gray-300 transition-colors duration-200"
+              className="text-[#263D29] transition-colors duration-200 hover:text-[#579D38]"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -103,13 +109,13 @@ const Footer = () => {
 
         {/* --- Personal Quote / Tagline --- */}
         {/* Replace this with your favorite quote or brand message */}
-        <p className="text-gray-300 italic max-w-xl">
+        <p className="text-[#303A2D] italic max-w-xl">
           “Success is when preparation meets opportunity.”
         </p>
 
         {/* --- Copyright / Trademark --- */}
         {/* Auto-updates year dynamically */}
-        <p className="text-xs text-gray-400">
+        <p className="text-xs text-[#52604D]">
           © {new Date().getFullYear()} Ansh Mahoviya. All rights reserved.
         </p>
       </motion.div>

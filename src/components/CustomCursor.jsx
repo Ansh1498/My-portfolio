@@ -35,7 +35,7 @@ export default function CustomCursor() {
         transition: "transform 0.05s linear",
       }}
     >
-      {/* The glowing circle */}
+      {/* The glowing circle cursor */}
       <div
         className="w-20 h-20 rounded-full 
                    bg-gradient-to-r from-pink-500 to-blue-500 
